@@ -9,7 +9,7 @@
   - To use express-generator, run the following commands in the terminal:
     - To globally install express-generator in the system
       
-      ```bash
+      ```node
       npm i express-generator -g
       ```
     - To create a project with express generator
@@ -58,34 +58,46 @@
     - **Document:** *A document is the single entity of the collection. Example, information about a single user present in the users collection.*
 
 - Steps to *setup* Mongo db:
-    1. Install community edition of [mongo db](https://www.mongodb.com/try/download/community). It requires internet connection for installation.
-    2. Instal mongoose js by writing command in the terminal:
-       ```bash
+    - Install community edition of [mongo db](https://www.mongodb.com/try/download/community). It requires internet connection for installation.
+    - Instal mongoose js by writing command in the terminal:
+
+      ```bash
        npm i mongoose
        ``` 
-    4. Require and setup connection.
-    ::NOTE:: The code side part of Mongo DB is done in the users.js file.
-        step 1: Require mongoose
-            -- const mongoose = require('mongoose');
+    - Write the following code in the users.js file to setup connection.
+      - step 1: Require mongoose
 
-        step 2: Create Database
-            -- mongoose.connect("mongodb://127.0.0.1:27017/database_name")
-            here,
-                a. connect() is a function of mongoose. It is used to establish a connection to a MongoDB database.
-                b. mongodb://: This indicates the protocol used to connect to MongoDB.
-                c. 127.0.0.1: This is the IP address (localhost) where the MongoDB server is running.
-                d. 27017: This is the default port number for MongoDB. MongoDB listens for client connections on this port by default.
-                e. database_name: This is the name of the specific database to which you want to connect.
+        ```js
+        const mongoose = require('mongoose');
+        ```
+      - step 2: Create Database
+     
+        ```js
+        mongoose.connect("mongodb://127.0.0.1:27017/database_name")
+        ```
 
-    5. Create Schema
-        --  const schemaName = mongoose.Schema({
-             //   ( information : Data type ) => Format
-                username : String,
-                name : String,
-                age : Number
-            })
-    6. Create model and export
-        -- module.exports = mongoose.model( "collectionName", schemaName )
+        here,
+          - `connect()` is a function of mongoose. It is used to establish a connection to a MongoDB database.
+          - `mongodb://:` indicates the protocol used to connect to MongoDB.
+          - `127.0.0.1:` is the IP address (localhost) where the MongoDB server is running.
+          - `27017:` is the default port number for MongoDB. MongoDB listens for client connections on this port by default.
+          - `database_name:` is the name of the specific database to which you want to connect.
+
+      - Step 3: Create Schema
+ 
+        ```javascript
+        const schemaName = mongoose.Schema({
+         //   ( information : Data type ) => Format
+            username : String,
+            name : String,
+            age : Number
+        })
+        ```
+      - Step 4: Create model and export
+     
+        ```javascript
+        module.exports = mongoose.model( "collectionName", schemaName )
+        ```
 
 ============= The Final users.js file will contain the following code ====================
 
