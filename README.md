@@ -65,12 +65,12 @@
      npm i mongoose
      ``` 
   - Follow the steps and write the code in the users.js file to setup connection.
-    - step 1: Require mongoose
+    - Step 1: Require mongoose
 
       ```js
       const mongoose = require('mongoose');
       ```
-    - step 2: Create Database
+    - Step 2: Create Database
    
       ```js
       mongoose.connect("mongodb://127.0.0.1:27017/database_name")
